@@ -1,13 +1,20 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
+import { RouterProvider } from "react-router-dom";
+
 import './App.css';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
+import { routes } from './routes';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Counter />
-      </header>
+      <Header />
+      <div className='content_container'>
+        <RouterProvider router={routes} />
+      </div>
+      <Footer />
     </div>
   );
 }

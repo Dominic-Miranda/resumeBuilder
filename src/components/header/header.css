@@ -1,0 +1,20 @@
+.topBar{
+    background-color: #6BD897;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+.heading{
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.subHeading{
+    font-weight: 200;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
