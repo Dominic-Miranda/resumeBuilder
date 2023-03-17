@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
-  height: 100vh;
+  background-color: #f1f1f1;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -39,11 +39,34 @@
   }
 }
 
-.content_container{
-  width: 80vw;
-  height: 100vh;
+.container{
+  width: 60vw;
   min-width: 500px;
-  background-color: #F5F5F5;
-  position: fixed;
-  left: 10%;
+  margin: 3vh auto;
+  padding: 2vh 5vw;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  background-color: #FFF;
+}
+
+.form_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.submit{
+  width: 10%;
+  background-color: #FFF;
+  margin: auto;
+}
+
+.formGroup{
+  border: 1px solid #000;
+  padding: 1vh 2vw;
+  margin-bottom: 10px;
+}
+
+.error_page{
+  text-align: center;
 }

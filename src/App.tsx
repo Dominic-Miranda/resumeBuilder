@@ -11,9 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className='content_container'>
         <RouterProvider router={routes} />
-      </div>
       <Footer />
     </div>
   );
