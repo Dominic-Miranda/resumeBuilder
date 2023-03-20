@@ -13,6 +13,7 @@ function Education() {
 
     const onSubmit = (data:any, e:any) => {
         const preparedData = prepareData(data);
+        console.log(preparedData);
         //store date in state via redux
         return navigate('/experience')
     };
@@ -33,7 +34,7 @@ function Education() {
     }
 
     const createForm = (count:number) => {
-        const form = [];
+        let form = [];
         for(let index = 1; index <= count; index++){
             form.push(<FormGroup className="formGroup" key={`education_field_${index}`}>
             <h4>Education Field - {index}</h4>

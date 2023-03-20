@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Personal from './components/form/personal';
 import Education from "./components/form/education";
 import Experience from "./components/form/experience";
+import Skills from "./components/form/skills";
 
 export const routes = createBrowserRouter([
     {
@@ -22,5 +23,9 @@ export const routes = createBrowserRouter([
     {
         path:"/experience",
         element:<Experience />
+    },
+    {
+        path:"/skills",
+        element:<Skills />
     }
 ])

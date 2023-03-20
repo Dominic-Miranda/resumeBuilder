@@ -70,3 +70,8 @@
 .error_page{
   text-align: center;
 }
+
+.button-spread{
+  display: flex !important;
+  justify-content: space-between !important;
+}

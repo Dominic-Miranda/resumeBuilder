@@ -15,7 +15,7 @@ function Experience() {
         const preparedData = prepareData(data);
         console.log(preparedData)
         //store date in state via redux
-        return navigate('/experience')
+        return navigate('/skills')
     };
     const onError = (errors:any, e:any) => console.log(errors, e);
     
@@ -34,7 +34,7 @@ function Experience() {
     }
 
     const createForm = (count:number) => {
-        const form = [];
+        let form = [];
         for(let index = 1; index <= count; index++){
             form.push(<FormGroup className="formGroup" key={`education_field_${index}`}>
             <h4>Experience Field - {index}</h4>
@@ -134,7 +134,7 @@ function Experience() {
                     variant="outlined"
                     className="submit"
                 >
-                    Submit
+                    Next
                 </Button>
             </form>
         </div>
