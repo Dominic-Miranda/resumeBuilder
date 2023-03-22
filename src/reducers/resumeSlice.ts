@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
+import { setLocalData } from '../common/common';
 import { ResumeState } from '../common/interface';
 
 const initialState: ResumeState = {
@@ -33,8 +34,13 @@ export const resumeSilce = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    initialLoad:(state,action:PayloadAction<ResumeState>)=>{
+      return{...state,...action.payload};
+    },
     updateData: (state,action:PayloadAction<any>)=>{
-        return {...state,[action.payload.key]:action.payload.data}
+        const resume = {...state,[action.payload.key]:action.payload.data}
+        setLocalData('resume',resume);
+        return resume;
     },
     removeData: (state,action:PayloadAction<any>)=>{
         return {...state,[action.payload.key]:{}}
@@ -57,7 +63,7 @@ export const resumeSilce = createSlice({
 //   },
 });
 
-export const {updateData,removeData } = resumeSilce.actions;
+export const {initialLoad,updateData,removeData } = resumeSilce.actions;
 
 export const getResumeData = (state: RootState) => state.resume;
 

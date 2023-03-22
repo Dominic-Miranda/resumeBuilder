@@ -15,8 +15,7 @@ function Skills() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-
-
+    
     const onSubmit = (data:any, e:any) => {
         dispatch(updateData({data:skills,key:'skills'}));
         //store date in state via redux
