@@ -5,15 +5,20 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
+import { useAppDispatch } from "../../app/hooks";
+import { updateData } from "../../reducers/resumeSlice";
+
 function Experience() {
     const [fieldCount, setFieldCount] = useState(2);
     const [formFields, setFormFields] = useState([] as Array<JSX.Element>);
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
 
     const onSubmit = (data:any, e:any) => {
         const preparedData = prepareData(data);
-        console.log(preparedData)
+        dispatch(updateData({data:preparedData,key:'experience'}));
         //store date in state via redux
         return navigate('/skills')
     };
@@ -84,7 +89,7 @@ function Experience() {
                     <Input 
                         id={`from${index}`} 
                         type="date"
-                        {...register(`from${index}`,{valueAsDate: true,})} 
+                        {...register(`from${index}`,{required: true,})} 
                         required
                         aria-required
                         />
@@ -94,7 +99,7 @@ function Experience() {
                     <Input 
                         id={`to${index}`} 
                         type="date"
-                        {...register(`to${index}`,{valueAsDate: true,})} 
+                        {...register(`to${index}`,{required: true,})} 
                         required
                         aria-required
                         />

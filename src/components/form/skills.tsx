@@ -6,15 +6,21 @@ import {Button, Input, InputLabel} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from "@mui/icons-material/Remove";
 
+import { useAppDispatch } from "../../app/hooks";
+import { updateData } from "../../reducers/resumeSlice";
+
 function Skills() {
     const [skills, setSkills] = useState([] as Array<string>);
     const [formattedSkills, setFormattedSkills] = useState([] as Array<JSX.Element>);
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
-    
+    const dispatch = useAppDispatch();
+
+
     const onSubmit = (data:any, e:any) => {
+        dispatch(updateData({data:skills,key:'skills'}));
         //store date in state via redux
-        return navigate('/')
+        return navigate('/templates')
     };
     const onError = (errors:any, e:any) => console.log(errors, e);
 

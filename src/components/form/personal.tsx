@@ -2,11 +2,16 @@ import { Input, Button, TextField, InputLabel, FormLabel, RadioGroup, FormContro
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
+import { useAppDispatch } from "../../app/hooks";
+import { updateData } from "../../reducers/resumeSlice";
+
 function Personal() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
     const onSubmit = (data:any, e:any) => {
-        console.log(data, e)
+        dispatch(updateData({data:data,key:'personalDetails'}));
         return navigate('/education');
     };
     const onError = (errors:any, e:any) => console.log(errors, e);
@@ -39,7 +44,7 @@ function Personal() {
                     <Input 
                         id="dob" 
                         type="date"
-                        {...register('dob',{valueAsDate: true,})} 
+                        {...register('dob',{required:true})} 
                         required
                         aria-required
                     />
